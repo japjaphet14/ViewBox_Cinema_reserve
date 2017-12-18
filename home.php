@@ -5,7 +5,7 @@
 
     $name ="";
     ?>
-
+    
     <html>
 
    <head>
@@ -20,7 +20,8 @@
 
 
     <body style="background-image: url(asd_images/background3.jpg); ">
-         <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+        <!--NAVBAR-->
+        <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
             <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;background-color:black; color:white; height:50px">
                 <div class="uk-navbar-left">
                     <div class="uk-padding"></div>
@@ -78,9 +79,9 @@
                  
             </nav>
         </div>
-       
+        
 
-       <!--NAVBAR-->
+        <!--NAVBAR-->
         <!-- SLIDESHOW-->
 
      <center>
@@ -138,9 +139,153 @@
         <h1 id="cinema" style="color:white;">Now Showing!</h1>
         
         </center>
+        <!--CINEMA-->
+        <div class="uk-padding"  style="padding-bottom:0px"></div>
+        <div class="uk-child-width-1-3@m uk-grid-match" uk-grid uk-grid uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-card; delay: 500; repeat: true">
+                    <div>
+                    <div class="uk-card uk-card-hover uk-card-secondary uk-card-body">
+                    <h3 class="uk-card-title uk-heading-divider">Cinema 1</h3>  
+                        <?php  
+                            $sql_cinema = "SELECT * FROM cinemas WHERE slot = '1'";
+                            $cin1_res = mysqli_query($connection, $sql_cinema);
+                            $row = mysqli_fetch_assoc($cin1_res);
+                            $name = $row['movie_name'];
+                            $sql_movie = "SELECT * FROM movies WHERE name = '$name'";
+                            $mov1_res = mysqli_query($connection, $sql_movie);
+                            $data = mysqli_fetch_assoc($mov1_res);
+                            echo '<center>';
+                                echo '<div class="uk-width-1-2">';
+                                    echo '<img src="data:image/jpeg;base64,'.base64_encode($data['image']).'">';
+                                echo '</div>';
+                                echo '<h2 style="margin-bottom: 0px; margin-top: 15px;">' . $name . '</h2>';
+                                
+                                echo '<a href="book_cinema1.php" class="uk-button uk-button-default">Book</a>';
+                            echo '</center>';
+                        ?>
+                    </div>
+                    </div>
 
+                    <div>
+                    <div class="uk-card uk-card-hover uk-card-secondary uk-card-body">
+                        <h3 class="uk-card-title uk-heading-divider">Cinema 2</h3>
+                        <?php  
 
-        
+                            $sql_cinema = "SELECT * FROM cinemas WHERE slot = '2'";
+                            $cin2_res = mysqli_query($connection, $sql_cinema);
+                            $row = mysqli_fetch_assoc($cin2_res);
+                            $name = $row['movie_name'];
+                            $sql_movie = "SELECT * FROM movies WHERE name = '$name'";
+                            $mov2_res = mysqli_query($connection, $sql_movie);
+                          $data = mysqli_fetch_assoc($mov2_res);
+                            echo '<center>';
+                                echo '<div class="uk-width-1-2">';
+                                    echo '<img src="data:image/jpeg;base64,'.base64_encode($data['image']).'">';
+                                echo '</div>';
+                                echo '<h2 style="margin-bottom: 0px; margin-top: 15px;">' . $name . '</h2>';
+                              
+                                echo '<a href="book_cinema2.php" class="uk-button uk-button-default">Book</a>';
+                            echo '</center>';
+                        ?>
+                    </div>
+                    </div>
+                
+
+                    <div>
+                    <div class="uk-card uk-card-hover uk-card-secondary uk-card-body">
+                        <h3 class="uk-card-title uk-heading-divider">Cinema 3</h3>
+                       <?php  
+
+                            $sql_cinema = "SELECT * FROM cinemas WHERE slot = '3'";
+                            $cin3_res = mysqli_query($connection, $sql_cinema);
+                            $row = mysqli_fetch_assoc($cin3_res);
+                            $name = $row['movie_name'];
+                            $sql_movie = "SELECT * FROM movies WHERE name = '$name'";
+                            $mov3_res = mysqli_query($connection, $sql_movie);
+                            $data = mysqli_fetch_assoc($mov3_res);
+                            echo '<center>';
+                                echo '<div class="uk-width-1-2">';
+                                    echo '<img src="data:image/jpeg;base64,'.base64_encode($data['image']).'">';
+                                echo '</div>';
+                                echo '<h2 style="margin-bottom: 0px; margin-top: 15px;">' . $name . '</h2>';
+                               
+                                echo '<a href="book_cinema3.php" class="uk-button uk-button-default">Book</a>';
+                            echo '</center>';
+                        ?>
+                    </div>
+                    </div>
+        </div>
+
+        <!--2nd line of cinema -->
+        <div class="uk-child-width-1-3@m uk-grid-match" uk-grid uk-grid uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-card; delay: 500; repeat: true">
+                    <div>
+                    <div class="uk-card uk-card-hover uk-card-secondary uk-card-body">
+                        <h3 class="uk-card-title uk-heading-divider">Cinema 4</h3>
+                             <?php  
+                            $sql_cinema = "SELECT * FROM cinemas WHERE slot = '4'";
+                            $cin4_res = mysqli_query($connection, $sql_cinema);
+                            $row = mysqli_fetch_assoc($cin4_res);
+                            $name = $row['movie_name'];
+                            $sql_movie = "SELECT * FROM movies WHERE name = '$name'";
+                            $mov4_res = mysqli_query($connection, $sql_movie);
+                            $data = mysqli_fetch_assoc($mov4_res);
+                            echo '<center>';
+                                echo '<div class="uk-width-1-2">';
+                                    echo '<img src="data:image/jpeg;base64,'.base64_encode($data['image']).'">';
+                                echo '</div>';
+                                echo '<h2 style="margin-bottom: 0px; margin-top: 15px;">' . $name . '</h2>';
+                               
+                                echo '<a href="book_cinema4.php" class="uk-button uk-button-default">Book</a>';
+                            echo '</center>';
+                        ?>
+                    </div>
+                    </div>
+                    <div>
+                    <div class="uk-card uk-card-hover uk-card-secondary uk-card-body">
+                        <h3 class="uk-card-title uk-heading-divider">Cinema 5</h3>
+                           <?php  
+                            $sql_cinema = "SELECT * FROM cinemas WHERE slot = '5'";
+                            $cin5_res = mysqli_query($connection, $sql_cinema);
+                            $row = mysqli_fetch_assoc($cin5_res);
+                            $name = $row['movie_name'];
+                            $sql_movie = "SELECT * FROM movies WHERE name = '$name'";
+                            $mov5_res = mysqli_query($connection, $sql_movie);
+                            $data = mysqli_fetch_assoc($mov5_res);
+                            echo '<center>';
+                                echo '<div class="uk-width-1-2">';
+                                    echo '<img src="data:image/jpeg;base64,'.base64_encode($data['image']).'">';
+                                echo '</div>';
+                                echo '<h2 style="margin-bottom: 0px; margin-top: 15px;">' . $name . '</h2>';
+                                
+                                echo '<a href="book_cinema5.php" class="uk-button uk-button-default">Book</a>';
+                            echo '</center>';
+                        ?>
+                    </div>
+                    </div>
+                    <div>
+                    <div class="uk-card uk-card-hover uk-card-secondary uk-card-body">
+                        <h3 class="uk-card-title uk-heading-divider ">Cinema 6</h3>
+                           <?php  
+                            $sql_cinema = "SELECT * FROM cinemas WHERE slot = '6'";
+                            $cin6_res = mysqli_query($connection, $sql_cinema);
+                            $row = mysqli_fetch_assoc($cin6_res);
+                            $name = $row['movie_name'];
+                            $sql_movie = "SELECT * FROM movies WHERE name = '$name'";
+                            $mov6_res = mysqli_query($connection, $sql_movie);
+                            $data = mysqli_fetch_assoc($mov6_res);
+                            echo '<center>';
+                                echo '<div class="uk-width-1-2">';
+                                    echo '<img src="data:image/jpeg;base64,'.base64_encode($data['image']).'">';
+                                echo '</div>';
+                                echo '<h2 style="margin-bottom: 0px; margin-top: 15px;">' . $name . '</h2>';
+                              
+                                echo '<a href="book_cinema6.php" class="uk-button uk-button-default">Book</a>';
+                            echo '</center>';
+                        ?>
+                    </div>
+                    </div>
+        </div>
+        <!--CINEMA-->
+       
     </body>
 
     </html>
