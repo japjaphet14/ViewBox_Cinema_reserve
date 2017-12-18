@@ -285,7 +285,11 @@
                     </div>
         </div>
         <!--CINEMA-->
-       
+       <ul class="uk-breadcrumb" style="margin-bottom:0px; background-color: black;">
+            <li>Copyright © 2017 ViewBox - All Rights Reserved</li>
+            <!--<li><a href="tac.php">Terms and Condition</a></li>
+            <li><a href="#">Privacy Policy</a></li>-->
+        </ul>
     </body>
 
     </html>
