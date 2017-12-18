@@ -5,7 +5,7 @@
 
     $name ="";
     ?>
-    
+
     <html>
 
    <head>
@@ -19,7 +19,7 @@
     <script src="js/uikit-icons.min.js"></script>
 
 
-    <body>
+    <body style="background-image: url(asd_images/background3.jpg); ">
          <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
             <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;background-color:black; color:white; height:50px">
                 <div class="uk-navbar-left">
@@ -79,6 +79,65 @@
             </nav>
         </div>
        
+
+       <!--NAVBAR-->
+        <!-- SLIDESHOW-->
+
+     <center>
+     
+            <div class="uk-position-relative uk-visible-toggle uk-light " uk-slideshow=" autoplay: true" style="height:550px;width:950px;">
+              <div>
+                <ul class="uk-slideshow-items autoplay: true">
+                <li>
+                    <image >
+                    <img src="asd_images/pic8.jpg" alt="asdasd" uk-cover>
+                    </image>
+                </li>
+                <li>
+                    <image >
+                    <img src="asd_images/pic7.jpg" alt="asdasd" uk-cover>
+                    </image>
+                </li>
+                <li>
+                    <image >
+                    <img src="asd_images/pic4.jpg" alt="asdasd" uk-cover>
+                    </image>
+                </li>
+                <li>
+                    <image >
+                    <img src="asd_images/pic5.jpg" alt="asdasd" uk-cover>
+                    </image>
+                </li>
+                </ul>
+
+            <a class="uk-slidenav-large uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+            <a class="uk-slidenav-large uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+            </div>
+        <ul class="uk-dotnav uk-flex-center uk-margin">
+            <li uk-slideshow-item="0"><a href="#">Item 1</a></li>
+            <li uk-slideshow-item="1"><a href="#">Item 2</a></li>
+            <li uk-slideshow-item="2"><a href="#">Item 3</a></li>
+            <li uk-slideshow-item="3"><a href="#">Item 4</a></li>
+         </ul>
+         </div>
+            
+         </center>   
+                        </br>
+                        </br>
+                        </br>
+                        </br>
+        <center>
+            <div style="width: 80%">
+                <hr class="uk-divider-icon">
+            </div>
+        </center>
+                        </br>
+                        </br>
+
+        <center>
+        <h1 id="cinema" style="color:white;">Now Showing!</h1>
+        
+        </center>
     </body>
 
     </html>
