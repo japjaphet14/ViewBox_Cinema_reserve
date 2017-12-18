@@ -138,6 +138,9 @@
         <h1 id="cinema" style="color:white;">Now Showing!</h1>
         
         </center>
+
+
+        
     </body>
 
     </html>
