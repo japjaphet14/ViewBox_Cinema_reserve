@@ -209,7 +209,64 @@
                             echo '<p style="margin-bottom: 0px; margin-top: 15px; text-align: justify;">' . $description . '</p>'; 
                         ?>             
                 </div>
-                
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                            <label>Time Schedule</label>&nbsp;&nbsp;
+							<select name="sched" id="meetingPlace">
+								<option value="0">Select Time</option>
+								<option value="1">10:00AM-12:30PM</option>
+								<option value="2">12:30PM-3:00PM</option>
+								<option value="3">3:00PM-5:30PM</option>
+								<option value="4">5:30PM-8:00PM</option>
+								<option value="5">8:00PM-10:30PM</option>
+							</select>
+							<span class="help-block"><?php echo $sched_err;?></span><br>
+							 <label>Number of Tickets</label>
+                              
+							<input type="text" name="ticket" style="width:50px" class="form-control">
+							<span class="help-block"><?php echo $ticket_err;?></span>
+                            <div id="results"></div>
+                            <?php 
+                                $numSeats = array();
+                                $sqlg = "SELECT * FROM cinema_available WHERE cinema ='1'";
+                                $resg = mysqli_query($connection, $sqlg);
+                                $x = 0;
+                                while($rowg = mysqli_fetch_assoc($resg)) { 
+                                  
+                                  $numSeats[$x] = $rowg['number_of_seats']; 
+                                  $x++;
+                                }
+                            ?>
+                            <script>
+                                $("#meetingPlace").on("change", function(){
+                                  
+                                    var selected = $(this).val();
+                                    var seats;
+                                    if(selected == 1) {
+                                        seats = <?php echo json_encode($numSeats[0]); ?>;
+
+                                    }else if(selected == 2) {
+                                        seats = <?php echo json_encode($numSeats[1]); ?>;
+                                            
+                                    }else if(selected == 3) {
+                                        seats = <?php echo json_encode($numSeats[2]); ?>;
+
+                                    }else if(selected == 4) {
+                                        seats = <?php echo json_encode($numSeats[3]); ?>;
+
+                                    }else if(selected == 5) {
+                                        seats = <?php echo json_encode($numSeats[4]); ?>;
+                                    }
+
+                                    if(seats < 1) {
+
+                                        $("#results").html("No Tickets are available! ");
+                                    }else {
+
+                                        $("#results").html("Number of Seats: " + seats);
+                                    }
+                                    
+                                })
+                            </script>
 
 
                     <input type="checkbox" name="formDoor[]" required ><a href="tac.php"> I have read the terms and condition</a><br />
