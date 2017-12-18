@@ -51,6 +51,7 @@
 
 
 
+
 ?>
 <html>
 	<head>
@@ -325,6 +326,79 @@
 		        		$z++;
 		        	}
 		        ?>
+		    </tbody>
+		</table>
+		</div>
+		</center>
+
+			<div id="slots">
+		    </br>
+	    </br>	    </br>
+	    </br>
+    <center>
+    
+    <div class="uk-card uk-card-default" style="width:80%">
+    <h1>Cinema Slots</h1>
+	    <table class="uk-table">
+		    <thead style="background-color:black;">
+		        <tr>
+		            <th>Cinema</th>
+		            <th>Time Slot</th>
+		            <th>Number of Seats</th>
+		            <th>Update Seats</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <?php
+		        	$sql2 = "SELECT * FROM cinema_available";
+		        	$res2 = mysqli_query($connection, $sql2);
+		        	while($row2 = mysqli_fetch_assoc($res2)) {
+		        		if($row2['time_slot'] == 1){
+							$time = '10:00AM-12:30PM';
+							if(isset($_POST['reset'])){
+								$sqla = "UPDATE cinema_available SET number_of_seats='50'";
+								mysqli_query($connection, $sqla);		
+                        	}
+					}else if($row2['time_slot'] == 2){
+						$time = '12:30PM-3:00PM';
+						if(isset($_POST['reset'])){
+								$sqla = "UPDATE cinema_available SET number_of_seats='50'";
+								$resulta = mysqli_query($connection, $sqla);
+							}
+					}else if($row2['time_slot'] == 3){
+						$time = '3:00PM-5:30PM';
+						if(isset($_POST['reset'])){
+								$sqla = "UPDATE cinema_available SET number_of_seats='50'";
+								$resulta = mysqli_query($connection, $sqla);
+							}
+					}else if($row2['time_slot'] == 4){
+						$time = '5:30PM-8:00PM';
+						if(isset($_POST['reset'])){
+								$sqla = "UPDATE cinema_available SET number_of_seats='50'";
+								$resulta = mysqli_query($connection, $sqla);
+							}
+					}else if($row2['time_slot'] == 5){
+						$time = '8:00PM-10:30PM';
+						if(isset($_POST['reset'])){
+								$sqla = "UPDATE cinema_available SET number_of_seats='50'";
+								$resulta = mysqli_query($connection, $sqla);
+							}
+					}
+
+		        		echo '<tr>';
+		        		echo '<th>'. $row2['cinema'] .'</th>';
+		        		echo '<th>'. $time .'</th>';
+		        		echo '<th>'. $row2	['number_of_seats'] .'</th>';
+		        		echo '<th>';
+		        		echo '<form method="post">';
+		        		echo '<input type="submit" name="reset" class="uk-button uk-button-default" value="Reset">';
+		        		echo '</form>';
+		        		echo '</th>';
+		        		echo '</tr>';
+
+		        	}
+
+		  	        ?>
 		    </tbody>
 		</table>
 		</div>
