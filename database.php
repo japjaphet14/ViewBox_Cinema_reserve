@@ -1,6 +1,6 @@
 <?php
     
-    $dbName = 'cinema_database' ;
+    $dbName = 'cinema_database2' ;
     $dbHost = 'localhost' ;
     $dbUsername = 'root';
     $dbUserPassword = '';
