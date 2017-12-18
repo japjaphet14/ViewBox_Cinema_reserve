@@ -132,7 +132,39 @@
 						echo '<th>'. $row['ticket'] .'</th>';			        		
 		        	echo '</tr>';
 					
-		
+					$sql2 = "SELECT * FROM user_history order by created_at DESC";
+		        	$res2 = mysqli_query($connection, $sql2);
+		        	while($row2 = mysqli_fetch_assoc($res2)) {	        		
+		        	if($row2['username'] == $_SESSION['name'] ){
+		        		if($row2['sched'] == 1){
+						$sched2 = '10:00AM-12:30PM';		
+					}else if($row2['sched'] == 2){
+						$sched2 = '12:30PM-3:00PM';
+					}else if($row2['sched'] == 3){
+						$sched2 = '3:00PM-5:30PM';
+					}else if($row2['sched'] == 4){
+						$sched2 = '5:30PM-8:00PM';
+					}else if($row2['sched'] == 5){
+						$sched2 = '8:00PM-10:30PM';
+					}else if ($row2['sched'] == 0 ){
+						$sched2 = 'Not yet book';
+					}
+					if($row2['cinema'] == 1){
+						$cinema2 = 'Cinema 1';		
+					}else if($row2['cinema'] == 2){
+						$cinema2 = 'Cinema 2';
+					}else if($row2['cinema'] == 3){
+						$cinema2 = 'Cinema 3';
+					}else if($row2['cinema'] == 4){
+						$cinema2 = 'Cinema 4';
+					}else if($row2['cinema'] == 5){
+						$cinema2 = 'Cinema 5';
+					}else if($row2['cinema'] == 6){
+						$cinema2 = 'Cinema 6';
+					}else if ($row2['cinema'] == 0 ){
+						$cinema2 = 'Not yet book';
+					}
+					
 					echo '<tr>';
 						echo '<th>'. $row['username'] .'</th>';
 		        		echo '<th>'. $row['email'] .'</th>';
@@ -144,7 +176,7 @@
 						echo '<th>'. $row2['ticket'] .'</th>';			        		
 		        	echo '</tr>';
 					
-				
+						}}
 					
 		        		}
 		        	}
